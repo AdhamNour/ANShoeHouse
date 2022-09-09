@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
+import androidx.navigation.fragment.findNavController
 import com.answ.anshoehouse.R
 import com.answ.anshoehouse.databinding.FragmentLoginBinding
 
@@ -38,10 +39,7 @@ class LoginFragment : Fragment() {
         }
         binding.loginButton.setOnClickListener {
             if (viewModel.login())
-                Toast.makeText(
-                    requireContext(),
-                    "Login success", Toast.LENGTH_SHORT
-                ).show()
+                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToOnBoarding())
             else
                 Toast.makeText(
                     requireContext(), "Login Failed", Toast.LENGTH_SHORT
