@@ -16,36 +16,50 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.32999998">
 
-        <EditText
-            android:id="@+id/email_text_edit"
+<!--        <EditText-->
+<!--            android:id="@+id/email_text_edit"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="8dp"-->
+<!--            android:gravity="center"-->
+<!--            android:hint="@string/email"-->
+<!--            android:inputType="textEmailAddress"-->
+<!--            android:minHeight="48dp"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/password_text_edit"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent" />-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email_text_input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:gravity="center"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress"
-            android:minHeight="48dp"
-            app:layout_constraintBottom_toTopOf="@+id/password_text_edit"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:hint="@string/email">
 
-        <EditText
-            android:id="@+id/password_text_edit"
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password_text_input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:hint="@string/password"
-            android:inputType="textPassword"
-            android:minHeight="48dp"
-            app:layout_constraintEnd_toEndOf="@id/email_text_edit"
-            app:layout_constraintStart_toStartOf="@id/email_text_edit"
-            app:layout_constraintTop_toBottomOf="@+id/email_text_edit" />
+            android:hint="@string/password">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
     </LinearLayout>
 
-    <Button
+    <com.microsoft.fluentui.widget.Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/login"
+        android:text="LogIn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
