@@ -5,9 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.answ.anshoehouse.R
+import com.answ.anshoehouse.databinding.FragmentInstructionOnBoardingBinding
+import com.answ.anshoehouse.databinding.FragmentOnBoardingBinding
+import com.bumptech.glide.Glide
+import java.net.URL
 
 class InstructionOnBoardingFragment : Fragment() {
+    private  lateinit var  binding: FragmentInstructionOnBoardingBinding;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,8 +23,22 @@ class InstructionOnBoardingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val circularProgressDrawable = context?.let { CircularProgressDrawable(it) }
+        circularProgressDrawable!!.strokeWidth = 5f
+        circularProgressDrawable!!.centerRadius = 100f
+        circularProgressDrawable!!.start()
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_instruction_on_boarding, container, false)
+        binding = FragmentInstructionOnBoardingBinding.inflate(inflater, container, false);
+        Glide.with(this).load(URL("https://source.unsplash.com/random/300x300/?instruction")).fitCenter()
+            .placeholder(circularProgressDrawable)
+            .into(binding.imageView)
+        Glide.with(this).load(URL("https://source.unsplash.com/random/300x300/?instruction")).fitCenter()
+            .placeholder(circularProgressDrawable)
+            .into(binding.imageView1)
+        Glide.with(this).load(URL("https://source.unsplash.com/random/300x400/?instruction")).fitCenter()
+            .placeholder(circularProgressDrawable)
+            .into(binding.imageView2)
+        return binding.root
     }
 
 
