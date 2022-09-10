@@ -1,5 +1,6 @@
 package com.answ.anshoehouse.login
 
+import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
@@ -9,9 +10,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.answ.anshoehouse.R
 import com.answ.anshoehouse.databinding.FragmentLoginBinding
+import com.microsoft.fluentui.util.activity
 
 class LoginFragment : Fragment() {
 
@@ -44,6 +47,12 @@ class LoginFragment : Fragment() {
                 Toast.makeText(
                     requireContext(), "Login Failed", Toast.LENGTH_SHORT
                 ).show()
+        }
+
+        val firstTime = activity?.getPreferences(Context.MODE_PRIVATE)
+            ?.getBoolean(getString(R.string.first_time), false);
+        if(firstTime == true) {
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToShoeListFragment())
         }
         return binding.root
     }
