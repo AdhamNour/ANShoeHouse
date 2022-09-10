@@ -12,10 +12,30 @@
         <action
             android:id="@+id/action_loginFragment_to_onBoarding"
             app:destination="@id/onBoarding" />
+        <action
+            android:id="@+id/action_loginFragment_to_shoeListFragment"
+            app:destination="@id/shoeListFragment" />
     </fragment>
     <fragment
         android:id="@+id/onBoarding"
         android:name="com.answ.anshoehouse.onboarding.OnBoarding"
         android:label="fragment_on_boarding"
-        tools:layout="@layout/fragment_on_boarding" />
+        tools:layout="@layout/fragment_on_boarding" >
+        <action
+            android:id="@+id/action_onBoarding_to_instructionOnBoardingFragment2"
+            app:destination="@id/instructionOnBoardingFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/instructionOnBoardingFragment2"
+        android:name="com.answ.anshoehouse.onboarding.InstructionOnBoardingFragment"
+        android:label="InstructionOnBoardingFragment" >
+        <action
+            android:id="@+id/action_instructionOnBoardingFragment2_to_shoeListFragment"
+            app:destination="@id/shoeListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoeListFragment"
+        android:name="com.answ.anshoehouse.shoelist.ShoeListFragment"
+        android:label="fragment_shoe_list"
+        tools:layout="@layout/fragment_shoe_list" />
 </navigation>

@@ -27,7 +27,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:orientation="vertical"
-                    tools:context=".onboarding.OnBoarding">
+                    >
 
                     <ImageView
                         android:id="@+id/imageView"
@@ -42,7 +42,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Premium Quality" />
+                        android:text="Premium Instrunction 1" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -74,7 +74,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Premium Quality" />
+                        android:text="Premium Instrunction 2" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
