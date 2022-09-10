@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.answ.anshoehouse.R
 import com.answ.anshoehouse.databinding.FragmentOnBoardingBinding
@@ -38,9 +39,9 @@ class OnBoarding : Fragment() {
         Glide.with(this).load(URL("https://source.unsplash.com/random/300x400/?shoe")).fitCenter()
             .placeholder(circularProgressDrawable)
             .into(binding.imageView2)
+        binding.next.setOnClickListener { findNavController().navigate(OnBoardingDirections.actionOnBoardingToInstructionOnBoardingFragment2()) }
         return binding.root
     }
-
 
 
 }
