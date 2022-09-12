@@ -17,6 +17,7 @@ import androidx.core.view.setMargins
 import androidx.core.view.setPadding
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.answ.anshoehouse.R
 import com.answ.anshoehouse.databinding.FragmentShoeListBinding
@@ -49,6 +50,9 @@ class ShoeListFragment : Fragment() {
                     ), getImageView()
                 )
             )
+        }
+        binding.add.setOnClickListener{
+            findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailsFragment())
         }
 
         return binding.root
