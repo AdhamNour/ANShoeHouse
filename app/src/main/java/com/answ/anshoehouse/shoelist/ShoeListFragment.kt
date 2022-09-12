@@ -15,6 +15,7 @@ import androidx.cardview.widget.CardView
 import androidx.core.view.marginBottom
 import androidx.core.view.setMargins
 import androidx.core.view.setPadding
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.answ.anshoehouse.R
@@ -28,7 +29,7 @@ class ShoeListFragment : Fragment() {
         fun newInstance() = ShoeListFragment()
     }
 
-    private lateinit var viewModel: ShoeListViewModel
+    private  val viewModel: ShoeListViewModel by activityViewModels()
     private lateinit var binding: FragmentShoeListBinding;
 
     override fun onCreateView(
@@ -36,7 +37,7 @@ class ShoeListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentShoeListBinding.inflate(inflater, container, false);
-        viewModel = ViewModelProvider(this).get(ShoeListViewModel::class.java)
+//        viewModel = ViewModelProvider(this).get(ShoeListViewModel::class.java)
         viewModel.shoesList.forEach {
 
 
