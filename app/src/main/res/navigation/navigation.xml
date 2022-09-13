@@ -48,7 +48,7 @@
     </fragment>
     <fragment
         android:id="@+id/shoeDetailsFragment"
-        android:name="com.answ.anshoehouse.shoe_details.ShoeDetailsFragment"
+        android:name="com.answ.anshoehouse.shoedetails.ShoeDetailsFragment"
         android:label="fragment_shoe_details"
         tools:layout="@layout/fragment_shoe_details" />
 </navigation>
