@@ -8,4 +8,7 @@
     <string name="fab_content_desc">Next</string>
     <string name="first_time">First time</string>
     <string name="ShopTitle">Browse Our Premium Collection</string>
+    <string name="image_url">image url</string>
+    <string name="price">Price</string>
+    <string name="name">Name</string>
 </resources>
