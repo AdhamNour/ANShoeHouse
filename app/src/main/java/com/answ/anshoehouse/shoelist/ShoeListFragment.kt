@@ -39,9 +39,7 @@ class ShoeListFragment : Fragment() {
     ): View? {
         binding = FragmentShoeListBinding.inflate(inflater, container, false);
 //        viewModel = ViewModelProvider(this).get(ShoeListViewModel::class.java)
-        viewModel.shoesList.forEach {
-
-
+        viewModel.shoesList.observe(viewLifecycleOwner, Observer { shoes->shoes.forEach {
             binding.items.addView(
                 getShoeLinearLayout(
                     getShoeDataLinearLayout(
@@ -50,7 +48,7 @@ class ShoeListFragment : Fragment() {
                     ), getImageView()
                 )
             )
-        }
+        } })
         binding.add.setOnClickListener{
             findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailsFragment())
         }

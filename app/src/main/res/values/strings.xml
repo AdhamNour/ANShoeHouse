@@ -11,4 +11,5 @@
     <string name="image_url">image url</string>
     <string name="price">Price</string>
     <string name="name">Name</string>
+    <string name="save">Save</string>
 </resources>
