@@ -2,12 +2,15 @@ package com.answ.anshoehouse.shoedetails
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.answ.anshoehouse.R
 import com.answ.anshoehouse.databinding.FragmentShoeDetailsBinding
 import com.answ.anshoehouse.shoelist.ShoeListViewModel
@@ -23,8 +26,14 @@ class ShoeDetailsFragment : Fragment() {
     ): View? {
         binding = FragmentShoeDetailsBinding.inflate(inflater, container, false)
         binding.vm= viewModel
+        binding.nameTextEdit.doOnTextChanged { text, start, before, count -> viewModel.updateShoe(text.toString(),null) }
+        binding.priceTextEdit.doOnTextChanged { text, start, before, count -> viewModel.updateShoe(null,text.toString().toFloatOrNull())}
         binding.save.setOnClickListener {
-            viewModel.shoe.value?.let { it1 -> sharedViewModel.addShoe(it1) }
+            if(viewModel.shoe.value!=null) {
+                Log.d("ShoeDetails",viewModel.shoe.value.toString())
+                sharedViewModel.addShoe(viewModel.shoe.value!!)
+                findNavController().popBackStack()
+            }
         }
         return binding.root
     }
