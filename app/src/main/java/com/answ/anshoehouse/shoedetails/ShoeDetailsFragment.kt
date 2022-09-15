@@ -4,11 +4,13 @@ import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.answ.anshoehouse.R
 import com.answ.anshoehouse.databinding.FragmentShoeDetailsBinding
 import com.answ.anshoehouse.shoelist.ShoeListViewModel
@@ -23,6 +25,7 @@ class ShoeDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentShoeDetailsBinding.inflate(inflater, container, false)
+        NavigationUI.setupActionBarWithNavController(this.activity as AppCompatActivity, findNavController())
         binding.vm= viewModel
         binding.nameTextEdit.doOnTextChanged { text, start, before, count -> viewModel.updateShoe(text.toString(),null) }
         binding.priceTextEdit.doOnTextChanged { text, start, before, count -> viewModel.updateShoe(null,text.toString().toFloatOrNull())}

@@ -33,7 +33,6 @@ class ShoeListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         setHasOptionsMenu(true)
-        NavigationUI.setupActionBarWithNavController(this.activity as AppCompatActivity, findNavController())
         binding = FragmentShoeListBinding.inflate(inflater, container, false);
 //        viewModel = ViewModelProvider(this).get(ShoeListViewModel::class.java)
         viewModel.shoesList.observe(viewLifecycleOwner, Observer { shoes ->
