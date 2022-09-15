@@ -1,23 +1,18 @@
 package com.answ.anshoehouse.shoelist
 
-import androidx.lifecycle.ViewModelProvider
+import android.content.Context
 import android.os.Bundle
-import android.view.Gravity
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
-import androidx.cardview.widget.CardView
-import androidx.core.view.marginBottom
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.setMargins
-import androidx.core.view.setPadding
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.answ.anshoehouse.R
 import com.answ.anshoehouse.databinding.FragmentShoeListBinding
@@ -30,26 +25,30 @@ class ShoeListFragment : Fragment() {
         fun newInstance() = ShoeListFragment()
     }
 
-    private  val viewModel: ShoeListViewModel by activityViewModels()
+    private val viewModel: ShoeListViewModel by activityViewModels()
     private lateinit var binding: FragmentShoeListBinding;
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        setHasOptionsMenu(true)
+        NavigationUI.setupActionBarWithNavController(this.activity as AppCompatActivity, findNavController())
         binding = FragmentShoeListBinding.inflate(inflater, container, false);
 //        viewModel = ViewModelProvider(this).get(ShoeListViewModel::class.java)
-        viewModel.shoesList.observe(viewLifecycleOwner, Observer { shoes->shoes.forEach {
-            binding.items.addView(
-                getShoeLinearLayout(
-                    getShoeDataLinearLayout(
-                        getTextView(it.name),
-                        getTextView(it.price.toString())
-                    ), getImageView()
+        viewModel.shoesList.observe(viewLifecycleOwner, Observer { shoes ->
+            shoes.forEach {
+                binding.items.addView(
+                    getShoeLinearLayout(
+                        getShoeDataLinearLayout(
+                            getTextView(it.name),
+                            getTextView(it.price.toString())
+                        ), getImageView()
+                    )
                 )
-            )
-        } })
-        binding.add.setOnClickListener{
+            }
+        })
+        binding.add.setOnClickListener {
             findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailsFragment())
         }
 
@@ -100,12 +99,31 @@ class ShoeListFragment : Fragment() {
             LinearLayout.LayoutParams.WRAP_CONTENT,
         )
         params.setMargins(10)
-        linearLayout.layoutParams=params
+        linearLayout.layoutParams = params
         linearLayout.gravity = Gravity.CENTER
         linearLayout.addView(data)
         linearLayout.addView(img)
         return linearLayout
     }
+
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.overflow_menu, menu)
+
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle item selection
+        return when (item.itemId) {
+            R.id.signout -> {
+                activity?.getPreferences(Context.MODE_PRIVATE)?.edit()?.putBoolean(getString(R.string.first_time),false)?.apply();
+                findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToLoginFragment())
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
 
 
 }

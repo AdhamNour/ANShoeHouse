@@ -11,6 +11,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+//        findNavController(R.id.nav_host_fragment).setGraph(R.navigation.navigation)
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = this.findNavController(R.id.nav_host_fragment)
+        return navController.navigateUp()
     }
 }

@@ -10,16 +10,13 @@ import androidx.navigation.fragment.findNavController
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.answ.anshoehouse.R
 import com.answ.anshoehouse.databinding.FragmentInstructionOnBoardingBinding
-import com.answ.anshoehouse.databinding.FragmentOnBoardingBinding
 import com.bumptech.glide.Glide
 import java.net.URL
 
 class InstructionOnBoardingFragment : Fragment() {
     private lateinit var binding: FragmentInstructionOnBoardingBinding;
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
