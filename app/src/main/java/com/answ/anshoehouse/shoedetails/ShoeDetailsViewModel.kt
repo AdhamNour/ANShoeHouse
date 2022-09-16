@@ -13,7 +13,5 @@ class ShoeDetailsViewModel : ViewModel() {
         _shoe.value = Shoe("",0f)
     }
 
-    public fun updateShoe(name: String?, price: Float?) {
-        _shoe.value = _shoe.value?.copyWith(name, price)
-    }
+    
 }

@@ -28,8 +28,4 @@ class ShoeListViewModel : ViewModel() {
     }
 }
 
-data class Shoe(val name: String, val price: Float){
-    fun copyWith(newName: String?,newPrice:Float?):Shoe{
-        return Shoe(newName?:name,newPrice?:price)
-    }
-}
+data class Shoe(var name: String, var price: Float)

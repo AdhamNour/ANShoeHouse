@@ -27,8 +27,6 @@ class ShoeDetailsFragment : Fragment() {
         binding = FragmentShoeDetailsBinding.inflate(inflater, container, false)
         NavigationUI.setupActionBarWithNavController(this.activity as AppCompatActivity, findNavController())
         binding.vm= viewModel
-        binding.nameTextEdit.doOnTextChanged { text, start, before, count -> viewModel.updateShoe(text.toString(),null) }
-        binding.priceTextEdit.doOnTextChanged { text, start, before, count -> viewModel.updateShoe(null,text.toString().toFloatOrNull())}
         binding.save.setOnClickListener {
             if(viewModel.shoe.value!=null) {
                 Log.d("ShoeDetails",viewModel.shoe.value.toString())
