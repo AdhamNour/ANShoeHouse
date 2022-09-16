@@ -10,10 +10,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
+        <!--        I needed here a vertical container-->
         <LinearLayout
             android:id="@+id/contianer"
             android:layout_width="match_parent"
@@ -37,10 +36,10 @@
                 android:paddingBottom="8dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email_text_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
-                    android:id="@+id/email_text_edit"
                     android:text="@{loginViewModel.email}" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -54,10 +53,10 @@
                 android:paddingTop="8dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
-                    android:id="@+id/password_edit_text"
                     android:text="@{loginViewModel.password}" />
 
 

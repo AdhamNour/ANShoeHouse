@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".shoelist.ShoeListFragment">
+    <!--It was easier to use constraint layout here-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -29,7 +30,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView">
-
+            <!--container to the item list-->
             <LinearLayout
                 android:id="@+id/items"
                 android:layout_width="match_parent"
